@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ 
+
+@font-face {
+  font-family: 'Averta';
+  font-weight: 400;
+  src: local('Averta'), url('/assets/fonts/AvertaStd-Regular.ttf');
+}
+@font-face {
+  font-family: 'Averta';
+  font-weight: 600;
+  src: local('Averta'), url('/assets/fonts/AvertaStd-Semibold.ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 300;
+  src: local('Poppins'), url('/assets/fonts/Poppins-Light.ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 500;
+  src: local('Poppins'), url('/assets/fonts/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  src: local('Poppins'), url('/assets/fonts/Poppins-SemiBold.ttf');
+}
+
+
+:root {
+  --white: #ffffff;
+  --black: #07142C;
+  --dark: #121F3A;
+  --green: #60CE90;
+  --cyan:#46A2DE;
+  --pink: #F73CF2;
+  --gray: #ffffff12;
+  --yellow: #F5D242;
+  --blue: #4B83F1;
+  --danger: #E32A4F;
+  }
+   
+  @layer components {
+    .site-container {
+      @apply container mx-auto p-4;
+    }
+  }
+
+  *, *::before, *::after{
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: theme('colors.white');
+    background: theme('colors.dark');
+    font-family: theme('fontFamily.Averta');
+  }
+
+  
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* For firefox thumb color  */
+  html{
+    scrollbar-color:rgb(0, 255, 157) rgb(0, 255, 157) !important;
+    scroll-behavior: smooth;
+   }
+
+  #mycourses::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: .3em;
+  }
+  
+  #mycourses::-webkit-scrollbar-track{
+    background-color: var(--white);
+  }
+
+  #mycourses::-webkit-scrollbar-thumb {
+    background-color: var(--black);
+    outline: 1px solid var(--black);
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: var(--dark);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 255, 157);
+    outline: 1px solid rgb(0, 255, 157);
+  }
+
+.navlink::before{
+  content: '';
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to right, var(--cyan), var(--green));
+  transition: all 0.2s linear;
+}
+
+.navlink:hover::before{
+  width: 100%;
+}
+
+
+/* About us page team pagination  */
+.swiper-pagination{
+  position: relative;
+  margin-top: 30px !important;
+}
+
+span.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--yellow);
+}
+
+/* Leaderboard student polygon desing  */
+
+.hexagon{
+    width: 60px;
+    height: 60px;
+    -webkit-clip-path: polygon(50% 0%, 94% 26%, 94% 75%, 50% 100%, 7% 75%, 7% 26%);
+    clip-path: polygon(50% 0%, 94% 26%, 94% 75%, 50% 100%, 7% 75%, 7% 26%);
+}
+
+.hexagon::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: var(--blue);
+    position: absolute;
+    top: 75%;
+    left: 0;
+}
+
+  input.PhoneInputInput {
+    background: transparent;
+    padding-left: 15px;
+    font-family: 'Averta';
+    border: none;
+    outline: none;
+  }
+
+  select.PhoneInputCountrySelect {
+    color: var(--dark);
+  }
+  
+  /* Course Pagination  */
+  .MuiPaginationItem-root:not(.Mui-selected) {
+    color: gray !important;
+  }
+
+
+  /* Google button  */
+  .nsm7Bb-HzV7m-LgbsSe.jVeSEe.i5vt6e-Ia7Qfc.uaxL4e-RbRzK {
+    width: 208px !important;
+  }
+
+  #nprogress .spinner {
+    display: none !important;
+  }
+
+  .MuiAccordion-root{
+    color: white !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 1px solid var(--gray);
+  }
+
+  .MuiAccordionDetails-root {
+    font-family: theme('fontFamily.Averta');
+  }
+
+  .MuiAccordionSummary-content{
+    font-family: theme('fontFamily.Averta');
+    font-size: 18px;
+  }
+
+  .MuiAccordionDetails-root{
+    color: rgb(230, 230, 230) !important;
+  }
+
+  /* Active  */
+  .MuiAccordionSummary-content.Mui-expanded, 
+  .MuiAccordionSummary-expandIconWrapper.Mui-expanded svg 
+  {
+    color: var(--cyan) !important;
+    transition: all 0.2s linear; 
+  }
+
+  /* Dashboard mobile menu scrollbar  */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .navlink:hover::before{
+      width: 0;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    .hexagon{
+      width: 40px;
+      height: 40px;
+    }
+
+    .MuiAccordionSummary-content{
+      font-size: 16px;
+    }
+  }
+
+ 
